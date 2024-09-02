@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            /* box-sizing: border-box; */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+        }
+
+        .navbar img {
+            height: 80px;
+        }
+
+        .content {
+            text-align: right;
+        }
+
+        .content p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .container {
+            padding: 0;
+            max-width: 100%;
+        }
+
+        .confirmation-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .booking-reference {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .booking-status {
+            color: #28a745;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .booking-status i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .small-text {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .time-local {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .flight-info-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fff;
+            margin-top: 20px;
+        }
+
+        .flight-header {
+            background-color: #e7f1f8;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+        }
+
+        .flight-header i {
+            margin-right: 10px;
+        }
+
+        .flight-time {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .flight-duration {
+            text-align: center;
+            font-weight: bold;
+            margin: 0 20px;
+            white-space: nowrap;
+        }
+
+        .divider {
+            border-right: 1px solid #ddd;
+            padding-right: 20px;
+            margin-right: 20px;
+        }
+
+        .flight-stopover {
+            background-color: #e7f1f8;
+            padding: 5px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .economy-value ul {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        .economy-value ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .economy-value ul li i {
+            margin-right: 5px;
+        }
+
+        .vertical-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 66.66%;
+            width: 0;
+            border-left: 1px dotted #000;
+            z-index: 1;
+        }
+
+        .payment-details {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 50px 0;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+        }
+
+        .payment-details h3 {
+            margin-top: 0;
+        }
+
+        .payment-details .reference,
+        .payment-details .date,
+        .payment-details .invoice,
+        .payment-details .details {
+            margin-bottom: 10px;
+        }
+
+        .payment-details .dotted-line {
+            border-bottom: 1px dotted #000;
+            margin: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .contact-info {
+            font-family: Arial, sans-serif;
+            margin: 50px 0;
+        }
+
+        .contact-details {
+            margin-bottom: 20px;
+        }
+
+        .contact-details strong {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .contact-details p {
+            margin: 5px 0;
+        }
+
+        .contact-details a {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #0f7eed;
+            color: #f8fafc;
+             text-align: left;
+            padding: 10px 40px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <img src="images/dubai fly.png" alt="Left Corner Image">
+        <div class="content">
+            <img src="images/scanner.png" alt="Right Corner Image">
+            <p>Scan this barcode or enter the booking reference for self-service kiosk check-in.</p>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="confirmation-box">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="booking-status">
+                        <i class="fa fa-check-circle"></i>
+                        Your booking is confirmed
+                    </div>
+                    <p>Thank you for booking with us.</p>
+                    <p class="mb-0 font-weight-bold">Passenger details</p>
+                    <p>Mr. Hafiz Muhammad Ahmar Aqeel<br><span class="small-text">Primary Adult</span></p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="booking-reference">6S62AX</div>
+                    <div class="small-text">flydubai booking reference</div>
+                </div>
+            </div>
+        </div>
+        <div class="time-local">
+            All times are local
+        </div>
+
+        <div class="flight-info-box">
+            <div class="flight-header">
+                <i class="fas fa-plane-departure"></i>
+                Departure from <strong>Multan</strong> (Flight <strong>FZ 340/FZ 619</strong>)
+            </div>
+
+            <div class="row mt-4 position-relative">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-5 text-center">
+                            <div>07 September 2024, Saturday</div>
+                            <div class="flight-time">02:45</div>
+                            <div>MUX<br>Multan Airport</div>
+                        </div>
+                        <div class="col-md-2 text-center align-self-center">
+                            <div class="flight-duration">03h 00min</div>
+                        </div>
+                        <div class="col-md-5 text-center">
+                            <div>07 September 2024, Saturday</div>
+                            <div class="flight-time">04:45</div>
+                            <div>DXB<br>Dubai International Airport<br>Terminal 2</div>
+                        </div>
+                    </div>
+
+                    <div class="flight-stopover">
+                        Stopover in Dubai (DXB) | 01h 05min
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 text-center">
+                            <div>07 September 2024, Saturday</div>
+                            <div class="flight-time">05:50</div>
+                            <div>DXB<br>Dubai International Airport<br>Terminal 2</div>
+                        </div>
+                        <div class="col-md-2 text-center align-self-center">
+                            <div class="flight-duration">05h 40min</div>
+                        </div>
+                        <div class="col-md-5 text-center">
+                            <div>07 September 2024, Saturday</div>
+                            <div class="flight-time">10:30</div>
+                            <div>EBB<br>Entebbe Airport</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="economy-value">
+                        <ul>
+                            <li><i class="fas fa-suitcase"></i> 7 kg hand baggage (included)</li>
+                            <li><i class="fas fa-luggage-cart"></i> 30 kg checked baggage (included)</li>
+                            <li><i class="fas fa-utensils"></i> Complimentary meal</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="vertical-line"></div>
+            </div>
+        </div>
+
+        <div class="payment-details">
+            <div class="reference">Payment reference: 75711896</div>
+            <div class="date">Booked on: 22 August 2024</div>
+            <div class="dotted-line"></div>
+            <div class="invoice">Invoice: SILKWAYS TRAVEL AND TOURS SKT</div>
+            <div class="details">
+                Silkways Travel And Tours Skt
+                Rehan Dar   
+                22 August 2024<br>
+                SHOP NO 6 GROUND FLOOR SNC CNETRE PLOT 12 D AREA ISB P.O. Box 85300 SKT PK<br>
+                <strong>Paid via travel agent</strong IATA No. 27704152
+            </div>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>Please get in touch with us for any assistance with your booking.</p>
+            <p><strong>General queries:</strong> Contact Centre: <a href="tel:+97160054445">+971 600 54 44 45</a>, email: <a href="mailto:letstalk@flydubai.com">letstalk@flydubai.com</a></p>
+            <p><strong>Business Class:</strong> <a href="tel:+97160059559">+971 600 59 55 59</a>, email: <a href="mailto:businessteam@flydubai.com">businessteam@flydubai.com</a></p>        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="images/cards image.PNG" class="card-img-top" alt="Image 1">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="images/cards image.PNG" class="card-img-top" alt="Image 2">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="images/cards image.PNG" class="card-img-top" alt="Image 3">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <div>
+            <p>© 2024 flydubai. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
